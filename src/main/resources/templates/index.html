@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Spring Boot</title>
+    <link rel="shortcut icon" href="https://png.pngtree.com/png-clipart/20220208/ourmid/pngtree-3d-icon-of-rocket-for-startup-business-and-bitcoins-advertise-png-image_4381459.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/" th:text="${l1}" class="nav-link"></a></li>
+                <li><a href="/contact" th:text="${l2}" class="nav-link"></a></li>
+                <li><a href="/about" th:text="${l3}" class="nav-link"></a></li>
+                <li><a href="/usuarios/formulario" th:text="${l4}" class="nav-link special">Form</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    
+    <main>
+        <div class="content-wrapper">
+            <div class="text-content">
+                <h1 class="title" th:text="${title}">Welcome to Mario World</h1>
+                <p class="description" th:text="${desc}">Join Mario on an adventure through the Mushroom Kingdom!</p>
+                <a href="/usuarios/formulario" class="cta-button">Get Started</a>
+            </div>
+            
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img class="mario-image" src="https://purepng.com/public/uploads/large/purepng.com-super-mariomariosuper-mariovideo-gamefictional-characternintendoshigeru-miyamotomario-franchise-17015286383789a9am.png" alt="Super Mario">
+                </div>
+                <div class="shadow"></div>
+            </div>
+        </div>
+        
+        
+    </main>
+    
+    
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Add animation to Mario on hover
+        const marioImage = document.querySelector('.mario-image');
+        marioImage.addEventListener('mouseenter', function() {
+            this.classList.add('jump');
+            setTimeout(() => {
+                this.classList.remove('jump');
+            }, 500);
+        });
+    </script>
+</body>
+</html>

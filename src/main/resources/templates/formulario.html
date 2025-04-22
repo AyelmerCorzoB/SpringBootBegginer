@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form - Spring Boot</title>
+    <link rel="shortcut icon"
+        th:href="@{https://png.pngtree.com/png-clipart/20220208/ourmid/pngtree-3d-icon-of-rocket-for-startup-business-and-bitcoins-advertise-png-image_4381459.png}"
+        type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="stars"></div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/" th:text="${l1}" class="nav-link"></a></li>
+                <li><a href="/contact" th:text="${l2}" class="nav-link"></a></li>
+                <li><a href="/about" th:text="${l3}" class="nav-link"></a></li>
+                <li><a href="/usuarios/formulario" th:text="${l4}" class="nav-link special">Form</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <main>
+        <div class="form-section">
+            <h2>Formulario</h2>
+            <form action="/usuarios/guardar" method="post" th:object="${usuario}">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" th:field="*{nombre}" required>
+                    <label for="character">Favorite Character</label>
+                    <select th:field="*{character}" required>
+                        <option value="" disabled selected>Choose a character</option>
+                        <option th:each="character : ${characteres}" th:value="${character}" th:text="${character}"></option>
+                    </select>
+                </div><button type="submit">Guardar</button>
+            </form>
+            <article th:if="${mensaje}">
+                <h2 th:text="${mensaje}"></h2>
+            </article>
+        </div>
+    </main>
+
+    
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.querySelector('nav ul').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        const marioImage = document.querySelector('.mario-image');
+        marioImage.addEventListener('mouseenter', function () {
+            this.classList.add('jump');
+            setTimeout(() => {
+                this.classList.remove('jump');
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>
