@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Spring Boot</title>
+    <link rel="shortcut icon" href="https://png.pngtree.com/png-clipart/20220208/ourmid/pngtree-3d-icon-of-rocket-for-startup-business-and-bitcoins-advertise-png-image_4381459.png" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
+    <div th:if="${users.isEmpty()}">No se encontró ningún usuario</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre de usuario</th>
+                <th>Apellido de usuario</th>
+                <th>Correo electronico</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user: ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.lastname}"></td>
+                <td th:if="${user.email}" th:text="${user.email}"></td>
+                <td th:if="${not (user.email != null)}" th:text="${'Email no encontrado'}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/" class="cta-button">Volver</a>
+</body>
+</html>

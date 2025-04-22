@@ -1,11 +1,11 @@
-package com.pruebasspringboot.demo;
+package com.Models;
 
-public class Usuario {
+public class UsuarioMario {
     
     private String nombre;
     private String character;
 
-    public Usuario() {
+    public UsuarioMario() {
     }
     public String getNombre() {
         return nombre;

@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Spring Boot</title>
-    <link rel="shortcut icon" href="https://png.pngtree.com/png-clipart/20220208/ourmid/pngtree-3d-icon-of-rocket-for-startup-business-and-bitcoins-advertise-png-image_4381459.png" type="image/x-icon">
+    <title>Home - Spring Boot</title>
+    <link rel="shortcut icon"
+        href="https://png.pngtree.com/png-clipart/20220208/ourmid/pngtree-3d-icon-of-rocket-for-startup-business-and-bitcoins-advertise-png-image_4381459.png"
+        type="image/x-icon">
     <link rel="stylesheet" th:href="@{/styles.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="stars"></div>
     <header>
@@ -27,38 +31,48 @@
             <span></span>
         </div>
     </header>
-    
+
     <main>
         <div class="content-wrapper">
             <div class="text-content">
-                <h1 class="title" th:text="${title}">Welcome to Mario World</h1>
+                <h1 class="title" th:text="${titulo}">Welcome to Mario World</h1>
                 <p class="description" th:text="${desc}">Join Mario on an adventure through the Mushroom Kingdom!</p>
-                <a href="/usuarios/formulario" class="cta-button">Get Started</a>
+                <a href="/home" class="cta-button">Get Started</a>
+                <a href="/api/details" class="cta-button">Api Details User</a>
             </div>
-            
+
             <div class="image-container">
                 <div class="image-wrapper">
-                    <img class="mario-image" src="https://purepng.com/public/uploads/large/purepng.com-super-mario-hairmariosuper-mariovideo-gamefictional-characternintendoshigeru-miyamotomario-franchise-1701528638430pjpth.png" alt="Super Mario Contact">
+                    <img class="mario-image"
+                        src="https://purepng.com/public/uploads/large/purepng.com-super-mariomariosuper-mariovideo-gamefictional-characternintendoshigeru-miyamotomario-franchise-17015286383789a9am.png"
+                        alt="Super Mario">
                 </div>
                 <div class="shadow"></div>
             </div>
         </div>
-        
-        
+
+
     </main>
-    
-    
+    <article>
+
+        <div class="lista-user">
+            <p th:text="${body.Nombre}"></p>
+            <p th:text="${body.Apellido}"></p>
+            <p th:text="${body.Correo}"></p>
+        </div>
+
+        <a href="/">Volver a Inicio</a>
+    </article>
+
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
             document.querySelector('nav ul').classList.toggle('active');
             this.classList.toggle('active');
         });
 
-        // Add animation to Mario on hover
         const marioImage = document.querySelector('.mario-image');
-        marioImage.addEventListener('mouseenter', function() {
+        marioImage.addEventListener('mouseenter', function () {
             this.classList.add('jump');
             setTimeout(() => {
                 this.classList.remove('jump');
@@ -66,4 +80,5 @@
         });
     </script>
 </body>
+
 </html>

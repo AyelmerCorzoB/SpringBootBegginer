@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.pruebasspringboot.demo.Usuario;
+import com.Models.UsuarioMario;
 
 @Controller
 @RequestMapping("/usuarios")
@@ -29,12 +29,12 @@ public class UsuarioController {
         model.addAttribute("l2", "Contact");
         model.addAttribute("l3", "About us");
         model.addAttribute("l4", "Form");
-        model.addAttribute("usuario", new Usuario());
+        model.addAttribute("usuario", new UsuarioMario());
         return "formulario";
     }
 
     @PostMapping("/guardar")
-    public String guardarUsuario(@ModelAttribute Usuario usuario, Model model) {
+    public String guardarUsuario(@ModelAttribute UsuarioMario usuario, Model model) {
         model.addAttribute("mensaje", "Usuario guardado: " + usuario.getNombre());
         model.addAttribute("l1", "Home");
         model.addAttribute("l2", "Contact");
